@@ -13,11 +13,9 @@ def main():
     pass
 
 def isprime(num):
-    if num == 1:
-        return False
-    elif num == 2:
+    if num == 2:
         return True
-    elif num % 2 == 0:
+    elif num % 2 == 0 or num == 1:
         return False
     for i in range(3, int(math.sqrt(num)) + 1, 2):
         if num % i == 0:
