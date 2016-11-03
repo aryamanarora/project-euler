@@ -10,9 +10,9 @@ def main():
         while num != 1:
             if num % 2 == 0:
                 num //= 2
-                collatz += 1
             else:
                 num = 3*num + 1
+            collatz += 1
         if collatz > result:
             result = collatz
             print(original, collatz)
@@ -20,4 +20,4 @@ def main():
 if __name__ == '__main__':
     main()
 
-# 37.113 seconds
+# 44.051 seconds
