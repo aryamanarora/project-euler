@@ -1,41 +1,41 @@
 #include <stdio.h>
+#include <math.h>
 
 int factors(int num);
 
+int triangle(void);
+
 int main(int argc, char const *argv[])
 {
-    int i = 1;
-    int j = 1;
-    while (factors(i) < 510)
-    {
-        if (factors(i) > 100)
-        {
-            printf("%i %i", i, factors(i));
-        }
-        j++;
-        i += j;
+    /* triangle generator */
+    int n = 1;
+    int triangle[20000];
+    while (n < 20000) {
+        triangle[n] = (n * (n + 1)) / 2;
+        n++;
     }
-    return 0;
+
+    /* looks through the list */
+    for (int i = 1; i < 20000; i++)
+    {
+        if (factors(triangle[i]) > 500)
+        {
+            printf("The first triangle number with 500 factors is %i\n", triangle[i]);
+            break;
+        }
+    }
 }
 
 int factors(int num)
 {
-    int results = 2;
+    int factors = 1;
     if (num % 2 == 0)
     {
-        for (int i = 2; (i < num / 2) + 1; i++)
+        for (int i = 1; i < ceil(sqrt(num)); i++)
         {
             if (num % i == 0)
-                results++;
+                factors += 2;
         }
     }
-    else
-    {
-        for (int i = 3; i < (num / 2); i += 2)
-        {
-            if (num % i == 0)
-                results++;
-        }
-    }
-    return results;
+    return factors;
 }
