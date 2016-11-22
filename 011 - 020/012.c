@@ -37,5 +37,13 @@ int factors(int num)
                 factors += 2;
         }
     }
+    else
+    {
+        for (int i = 1; i < ceil(sqrt(num)); i+=2)
+        {
+            if (num % i == 0)
+                factors += 2;
+        }
+    }
     return factors;
 }

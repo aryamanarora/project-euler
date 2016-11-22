@@ -3,17 +3,17 @@
 """
 This one took a while, but is reasonably fast.
 
-| Min Factor | Time   |
-| :--------- | :----- |
-| 20         | 0.085  |
-| 50         | 0.091  |
-| 100        | 0.109  |
-| 200        | 0.197  |
-| 300        | 0.215  |
-| 400        | 1.135  |
-| 500        | 4.307  |
-| 600        | 5.812  |
-| 700        | 13.446 |
+| Min Factor | Even   | All    |
+| :--------- | :----- | :----- |
+| 20         | 0.085  | 0.070  |
+| 50         | 0.091  | 0.074  |
+| 100        | 0.109  | 0.069  |
+| 200        | 0.197  | 0.250  |
+| 300        | 0.215  | 0.232  |
+| 400        | 1.135  | 1.552  |
+| 500        | 4.307  | 6.095  |
+| 600        | 5.812  | 8.279  |
+| 700        | 13.446 | 18.390 |
 """
 
 import sys
@@ -30,12 +30,15 @@ def factors(n):
     if n % 2 == 0:
         for i in range(1, ceil(sqrt(n))):
             if n % i == 0: factors += 2
+    else:
+        for i in range(1, ceil(sqrt(n)), 2):
+            if n % i == 0: factors += 2
     return factors
 
 def main():
     for i in triangle():
         # print(i, factors(i))
-        if factors(i) > 500:
+        if factors(i) > 700:
             print(i, "has", factors(i), "factors.")
             return 0
 
