@@ -32,5 +32,5 @@ def good():
 
 
 if __name__ == '__main__':                      # call main
-    stupid()
+    # stupid()
     good()
