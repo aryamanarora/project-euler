@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import sys
 
 def main():
@@ -11,10 +9,10 @@ def main():
     pass
 
 def lcm(a, b):
-    for i in range(b, a*b):
-        if i % b == 0 and i % a == 0:
-            return i
-    return a * b
+    for i in range(int(b), 0, -1):
+        if b % i == 0 and a % i == 0:
+            return int((a*b)/i)
+    return int(a * b)
 
 if __name__ == '__main__':                      # call main
     main()

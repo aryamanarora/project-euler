@@ -24,11 +24,11 @@ int main(int argc, char const *argv[])
 int lcm(int a, int b)
 {
     // b should be the bigger number
-    for (int i = b; i <= a * b; i++)
+    for (int i = b; i >= 1; i--)
     {
-        if (i % b == 0 && i % a == 0)
+        if (b % i == 0 && a % i == 0)
         {
-            return i;
+            return (a * b) / i;
         }
     }
     return a * b;
